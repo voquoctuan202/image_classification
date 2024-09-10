@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Classification</title>
+</head>
+<body>
+    <h1>AI Image Classification</h1>
+    
+    <!-- Form để người dùng chọn hình ảnh -->
+    <form id="upload-form">
+        <label for="input-image">Chọn hình ảnh:</label>
+        <input type="file" id="input-image" name="input-image" accept="image/*">
+        <button type="submit">Dự đoán</button>
+    </form>
+
+    <!-- Hiển thị kết quả -->
+    <div id="result"></div>
+    <br>
+    <div id="score"></div>
+    <!-- Hiển thị hình ảnh đã chọn -->
+    <div>
+        <h3>Hình ảnh đã chọn:</h3>
+        <img id="selected-image" src="" alt="Selected Image" style="max-width: 300px; max-height: 300px; display: none;">
+    </div>
+
+    <script>
+        // Hàm chuyển đổi hình ảnh sang định dạng PNG
+        function convertImageToPng(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0);
+
+                        // Chuyển đổi hình ảnh sang PNG
+                        canvas.toBlob(function(blob) {
+                            resolve(blob);
+                        }, 'image/png');
+                    };
+                    img.src = event.target.result;
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Xử lý sự kiện khi người dùng gửi form
+        document.getElementById('upload-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Ngăn form gửi dữ liệu mặc định
+            
+            // Lấy tệp hình ảnh từ form
+            const fileInput = document.getElementById('input-image');
+            const originalFile = fileInput.files[0];
+
+            // Chuyển đổi hình ảnh sang PNG
+            const pngBlob = await convertImageToPng(originalFile);
+
+            // Tạo form data và thêm hình ảnh PNG vào
+            const formData = new FormData();
+            formData.append('file', pngBlob, 'image.png');
+            
+            // Gửi yêu cầu POST đến API với tệp hình ảnh
+            const response = await fetch('http://localhost:8000/predict', {
+                method: 'POST',
+                body: formData
+            });
+            
+            // Nhận kết quả từ API
+            const result = await response.json();
+            
+            
+            // Hiển thị kết quả trên trang web
+            document.getElementById('result').innerText = 'Kết quả dự đoán: ' + result.prediction;
+            document.getElementById('score').innerText = 'Phần trăm dự đoán: ' + result.score.toFixed(2) + "%";
+            // Hiển thị hình ảnh đã chọn
+            const selectedImage = document.getElementById('selected-image');
+            selectedImage.src = URL.createObjectURL(pngBlob);
+            selectedImage.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
