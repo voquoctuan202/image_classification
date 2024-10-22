@@ -1,0 +1,23 @@
+Evaluating Decision Tree...
+Accuracy: 51.33%
+Precision (weighted): 0.52
+Recall (weighted): 0.51
+F1 Score (weighted): 0.51
+
+Confusion Matrix:
+
+Classification Report:
+                    precision    recall  f1-score   support
+
+        Bà Chúa Xứ       0.56      0.49      0.52       196
+         Chọi Trâu       0.64      0.61      0.62       155
+       Đua Ghe Ngo       0.46      0.50      0.48       139
+ Giỗ Tổ Hùng Vương       0.48      0.46      0.47       169
+ Lễ hội chùa Hương       0.51      0.53      0.52       150
+     Lễ hội Đua Bò       0.58      0.59      0.59       187
+ Lễ hội Nghinh Ông       0.44      0.44      0.44       172
+Lễ hội Thánh Gióng       0.44      0.48      0.46       149
+
+          accuracy                           0.51      1317
+         macro avg       0.51      0.51      0.51      1317
+      weighted avg       0.52      0.51      0.51      1317

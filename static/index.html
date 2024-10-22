@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="../static/script.js"></script> -->
+    <link rel="stylesheet" href="../static/style.css">
+    <title>AI Image Classification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+</head>
+<body class="show-chatbot">
+    <h1 style="text-align: center;">AI Image Classification</h1>
+    
+    <!-- Form để người dùng chọn hình ảnh -->
+    <form id="upload-form" style="text-align: center;">
+        <label for="input-image"><i class="fa-solid fa-upload"></i> Chọn hình ảnh</label>
+        <input type="file" id="input-image" name="input-image" accept="image/*">
+        <button type="submit" id="btnSubmit">Dự đoán</button>
+    </form>
+    
+    <!-- Hiển thị kết quả -->
+    
+   
+
+    
+    <div id="predict" style="display: none; text-align: center;">
+        <h3>Hình ảnh đã chọn:</h3>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <img id="selected-image" src="" alt="Selected Image" style="max-width: 300px; max-height: 300px; display: none; align-self: center  ; ">
+        </div>
+        <div id="result" style="text-align: center;"></div>
+        <br>
+        <div id="score" style="text-align: center;"></div>
+
+        <div>
+            <h3 id="name_class"></h3>
+            <div id="image-gallery"></div>
+        </div>
+
+        <button onclick="changePredict()">Dự đoán chưa đúng, thử một kết quả khác</button>
+        <button id="true" onclick="showChatBot()">Dự đoán chính xác, xem thêm thông tin</button>
+      
+    </div>
+
+    <button class="chatbot-toggler">
+        <span class="material-symbols-outlined">mode_comment</span>
+        <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="chatbot">
+        <header>
+            <h2>Chatbot</h2>
+            <span class="material-symbols-outlined">close</span>
+        </header>
+        <ul class="chatbox">
+            <li class="chat incoming">
+                <span class="material-symbols-outlined">smart_toy</span>
+                <p>Hãy chọn một hình ảnh lễ hội mà bạn muốn biết.</p>
+            </li>
+            <!-- <li class="chat outgoing">          
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+            </li> -->
+        </ul>
+        <div class="chat-input">
+            <label for="inputImg">
+                <i class="fa-solid fa-upload"></i>
+            </label>
+            <input type="file" id="inputImg" accept="image/*" hidden>
+            <textarea placeholder="Enter a message" required></textarea>
+          
+            <span id="send-btn" class="material-symbols-outlined">Send</span>
+        </div>
+
+    </div>
+    
+    
+    
+
+  
+</body>
+    <script src="../static/script.js"></script>
+</html>
