@@ -118,48 +118,48 @@ async function changePredict(){
 
 }
 
-function showChatBot(){
-    var div = document.getElementById("chatbot");
-    div.style.display = "block"
-    var response = document.getElementById("response")
-    response.innerHTML =""
-    getQuestion();
-}
+// function showChatBot(){
+//     var div = document.getElementById("chatbot");
+//     div.style.display = "block"
+//     var response = document.getElementById("response")
+//     response.innerHTML =""
+//     getQuestion();
+// }
 
-function hideChatBot(){
-    var div = document.getElementById("chatbot");
-    div.style.display = "none"
-}
+// function hideChatBot(){
+//     var div = document.getElementById("chatbot");
+//     div.style.display = "none"
+// }
 
-async function getQuestion() {
-    console.log("Num class get question: "+ num_class)
-    const response = await fetch(`/get_question?num_class=${num_class}`, { method: "GET" });
-    const data = await response.json();
-    document.getElementById("question").innerHTML = "<h3>" + data.question + "</h3>";
+// async function getQuestion() {
+//     console.log("Num class get question: "+ num_class)
+//     const response = await fetch(`/get_question?num_class=${num_class}`, { method: "GET" });
+//     const data = await response.json();
+//     document.getElementById("question").innerHTML = "<h3>" + data.question + "</h3>";
     
-    const optionsDiv = document.getElementById("options");
-    optionsDiv.innerHTML = "";
-    data.options.forEach((option, index) => {
-        optionsDiv.innerHTML += `<input type="radio" name="option" value="${option}"> ${option}<br>`;
-    });
-    document.getElementById("submitBtn").style.display = "block";
-}
+//     const optionsDiv = document.getElementById("options");
+//     optionsDiv.innerHTML = "";
+//     data.options.forEach((option, index) => {
+//         optionsDiv.innerHTML += `<input type="radio" name="option" value="${option}"> ${option}<br>`;
+//     });
+//     document.getElementById("submitBtn").style.display = "block";
+// }
 
-async function sendAnswer() {
-    const selectedOption = document.querySelector('input[name="option"]:checked').value;
-    const response = await fetch("/submit_answer", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ answer: selectedOption, num : num_class})
-    });
-    const data = await response.json();
-    document.getElementById("response").innerHTML = "<p><strong>Phản hồi:</strong> " + data.response + "</p>";
-    document.getElementById("submitBtn").style.display = "none";
-    document.getElementById("question").innerHTML = "";
-    document.getElementById("options").innerHTML = "";
-}
+// async function sendAnswer() {
+//     const selectedOption = document.querySelector('input[name="option"]:checked').value;
+//     const response = await fetch("/submit_answer", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify({ answer: selectedOption, num : num_class})
+//     });
+//     const data = await response.json();
+//     document.getElementById("response").innerHTML = "<p><strong>Phản hồi:</strong> " + data.response + "</p>";
+//     document.getElementById("submitBtn").style.display = "none";
+//     document.getElementById("question").innerHTML = "";
+//     document.getElementById("options").innerHTML = "";
+// }
 
 const chatInput =  document.querySelector(".chat-input textarea")
 const sendChatBtn = document.querySelector(".chat-input span")
@@ -172,10 +172,10 @@ async function getApiKey() {
     const data = await response.json();
     return data.API_KEY;
 }
-
+let API_KEY
 
 getApiKey().then(apiKey => {
-    const API_KEY  = apiKey
+    API_KEY  = apiKey
     // Sử dụng apiKey ở đây
     console.log(API_KEY)
     const generateRespone = (incomingChatLi) => {
@@ -227,6 +227,28 @@ getApiKey().then(apiKey => {
         
         return chatLi
     }
+    const createChatGallery = (imageUrls) =>{
+        const chatLi = document.createElement("li")
+        chatLi.classList.add('chat', "incoming")
+        
+        chatLi.style.marginRight = "-25px"
+        let chatContent =  `<span class="material-symbols-outlined">smart_toy</span>`
+        chatLi.innerHTML = chatContent
+        imageUrls.forEach((url) => {
+            const img = document.createElement('img');
+            img.src =  url;
+            console.log(url);
+            img.style.width = "140px";
+            
+            img.style.margin = "2px";
+            chatLi.appendChild(img);
+        });
+        // let chatContent = ""
+        // chatLi.innerHTML = chatContent
+        return chatLi
+    }
+
+
     
     
      
@@ -240,6 +262,7 @@ getApiKey().then(apiKey => {
         setTimeout(() =>{
             const incomingChatLi = createChatLi("Thinking...", 'incoming')
             chatBox.append(incomingChatLi)
+           
             chatBox.scrollTo(0, chatBox.scrollHeight)
             generateRespone(incomingChatLi)
         }, 600)
@@ -272,13 +295,31 @@ getApiKey().then(apiKey => {
         setTimeout(() =>{
             chatBox.append(createChatLi(`Hình ảnh có thể là: ${result.prediction}`, 'incoming'))
             chatBox.append(createChatLi(`Xác xuất dự đoán khoản ${result.score.toFixed(2)} %`, 'incoming'))
+            chatBox.append(createChatLi("Dưới đây là một số hình ảnh có liên quan", 'incoming'))
+            chatBox.append(createChatGallery(result.image_urls))
+            
             chatBox.scrollTo(0, chatBox.scrollHeight)    
         }, 600)
-       
-       
+   
     });
-    
+
+     
+
+
 });
+
+document.getElementById("trueBtn").addEventListener('click', () =>{
+    console.log("True")
+})    
+document.getElementById("falseBtn").addEventListener('click', () =>{
+    console.log("False")
+})  
+
+
+
+
+
+
 
 
 
