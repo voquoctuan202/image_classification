@@ -1,4 +1,4 @@
-var percent_scores
+let percent_scores
 var num_class 
 // Hàm chuyển đổi hình ảnh sang định dạng PNG
 function convertImageToPng(file) {
@@ -89,7 +89,7 @@ document.getElementById('upload-form').addEventListener('submit', async function
 
 async function changePredict(){
     
- 
+    
     const response = await fetch(`/change_predict?percent_scores=${percent_scores}`, {method: "GET"});
     
     // Nhận kết quả từ API
@@ -172,10 +172,20 @@ async function getApiKey() {
     const data = await response.json();
     return data.API_KEY;
 }
-let API_KEY
+
+function showCheckBtn(){
+    const div = document.getElementById('checkBtn')
+    div.style.display="block"
+}
+function hideCheckBtn(){
+    const div = document.getElementById('checkBtn')
+    div.style.display="none"
+}
+
+
 
 getApiKey().then(apiKey => {
-    API_KEY  = apiKey
+    const API_KEY  = apiKey
     // Sử dụng apiKey ở đây
     console.log(API_KEY)
     const generateRespone = (incomingChatLi) => {
@@ -232,7 +242,7 @@ getApiKey().then(apiKey => {
         chatLi.classList.add('chat', "incoming")
         
         chatLi.style.marginRight = "-25px"
-        let chatContent =  `<span class="material-symbols-outlined">smart_toy</span>`
+        let chatContent =  `<span style="margin-bottom:100px" class="material-symbols-outlined">smart_toy</span>`
         chatLi.innerHTML = chatContent
         imageUrls.forEach((url) => {
             const img = document.createElement('img');
@@ -291,29 +301,60 @@ getApiKey().then(apiKey => {
         
         // Nhận kết quả từ API
         const result = await response.json();
-        
+        percent_scores = result.percent_scores;
+        num_class = result.num_class; 
         setTimeout(() =>{
             chatBox.append(createChatLi(`Hình ảnh có thể là: ${result.prediction}`, 'incoming'))
             chatBox.append(createChatLi(`Xác xuất dự đoán khoản ${result.score.toFixed(2)} %`, 'incoming'))
             chatBox.append(createChatLi("Dưới đây là một số hình ảnh có liên quan", 'incoming'))
             chatBox.append(createChatGallery(result.image_urls))
             
-            chatBox.scrollTo(0, chatBox.scrollHeight)    
+            chatBox.scrollTo(0, chatBox.scrollHeight)   
+            showCheckBtn()
         }, 600)
+        
    
     });
 
+    document.getElementById("trueBtn").addEventListener('click', () =>{
+        hideCheckBtn()
+        chatBox.append(createChatLi("Có vẻ dự đoán là đúng", 'outgoing'))
+        chatBox.append(createChatLi("Tuyệt! Hãy hỏi bất kì thông tin gì về lễ hội này", 'incoming'))
+        chatBox.scrollTo(0, chatBox.scrollHeight)
+    }) 
+    
+    document.getElementById("falseBtn").addEventListener('click', async () =>{
+
+        hideCheckBtn()
+        chatBox.append(createChatLi("Có vẻ chưa đúng, hãy dự đoán lại", 'outgoing'))
+        chatBox.scrollTo(0, chatBox.scrollHeight)
+        const response = await fetch(`/change_predict?percent_scores=${percent_scores}`, {method: "GET"});
+        
+        // Nhận kết quả từ API
+        const result = await response.json();
+        percent_scores = result.percent_scores;
+        num_class = result.num_class 
+        console.log(result.prediction)
+        
+    
+        percent_scores = result.percent_scores;
+        num_class = result.num_class; 
+        setTimeout(() =>{
+            chatBox.append(createChatLi(`Hình ảnh có thể là: ${result.prediction}`, 'incoming'))
+            chatBox.append(createChatLi(`Xác xuất dự đoán khoản ${result.score.toFixed(2)} %`, 'incoming'))
+            chatBox.append(createChatLi("Dưới đây là một số hình ảnh có liên quan", 'incoming'))
+            chatBox.append(createChatGallery(result.image_urls))
+            
+            chatBox.scrollTo(0, chatBox.scrollHeight)   
+            showCheckBtn()
+        }, 600)
+    })  
      
 
 
 });
 
-document.getElementById("trueBtn").addEventListener('click', () =>{
-    console.log("True")
-})    
-document.getElementById("falseBtn").addEventListener('click', () =>{
-    console.log("False")
-})  
+
 
 
 

@@ -236,5 +236,8 @@ label:active{
     .chat-input span{
         margin-left: 0;
     }
+    #checkBtn{
+        margin-left: 30%;
+    }
 }
 
