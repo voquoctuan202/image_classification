@@ -1,5 +1,6 @@
-let percent_scores
+var percent_scores
 var num_class 
+var prediction
 // Hàm chuyển đổi hình ảnh sang định dạng PNG
 function convertImageToPng(file) {
     return new Promise((resolve, reject) => {
@@ -53,18 +54,19 @@ document.getElementById('upload-form').addEventListener('submit', async function
     // Nhận kết quả từ API
     const result = await response.json();
     
-    var div = document.getElementById("predict");
+    var div = document.getElementById("predict")
     div.style.display = "block"
     
-    percent_scores = result.percent_scores;
-    num_class = result.num_class; 
-    console.log("Num class predict: "+ num_class)
+    prediction = result.prediction
+    percent_scores = result.percent_scores
+    num_class = result.num_class
+
     // Hiển thị kết quả trên trang web
 
     
-    document.getElementById('result').innerText = 'Kết quả dự đoán: ' + result.prediction;
-    document.getElementById('name_class').innerText = 'Một số hình ảnh của ' + result.prediction;
-    document.getElementById('score').innerText = 'Phần trăm dự đoán: ' + result.score.toFixed(2) + "%";
+    document.getElementById('result').innerText = 'Kết quả dự đoán: ' + result.prediction
+    document.getElementById('name_class').innerText = 'Một số hình ảnh của ' + result.prediction
+    document.getElementById('score').innerText = 'Phần trăm dự đoán: ' + result.score.toFixed(2) + "%"
     //document.getElementById('image_urls').innerText = 'Kết quả dự đoán: ' + result.image_urls; 
     //Hiển thị hình ảnh đã chọn
     const selectedImage = document.getElementById('selected-image');
@@ -94,6 +96,7 @@ async function changePredict(){
     
     // Nhận kết quả từ API
     const result = await response.json();
+    prediction = result.prediction
     percent_scores = result.percent_scores;
     num_class = result.num_class 
     console.log("Num class change predict: "+ num_class)
@@ -118,54 +121,13 @@ async function changePredict(){
 
 }
 
-// function showChatBot(){
-//     var div = document.getElementById("chatbot");
-//     div.style.display = "block"
-//     var response = document.getElementById("response")
-//     response.innerHTML =""
-//     getQuestion();
-// }
-
-// function hideChatBot(){
-//     var div = document.getElementById("chatbot");
-//     div.style.display = "none"
-// }
-
-// async function getQuestion() {
-//     console.log("Num class get question: "+ num_class)
-//     const response = await fetch(`/get_question?num_class=${num_class}`, { method: "GET" });
-//     const data = await response.json();
-//     document.getElementById("question").innerHTML = "<h3>" + data.question + "</h3>";
-    
-//     const optionsDiv = document.getElementById("options");
-//     optionsDiv.innerHTML = "";
-//     data.options.forEach((option, index) => {
-//         optionsDiv.innerHTML += `<input type="radio" name="option" value="${option}"> ${option}<br>`;
-//     });
-//     document.getElementById("submitBtn").style.display = "block";
-// }
-
-// async function sendAnswer() {
-//     const selectedOption = document.querySelector('input[name="option"]:checked').value;
-//     const response = await fetch("/submit_answer", {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify({ answer: selectedOption, num : num_class})
-//     });
-//     const data = await response.json();
-//     document.getElementById("response").innerHTML = "<p><strong>Phản hồi:</strong> " + data.response + "</p>";
-//     document.getElementById("submitBtn").style.display = "none";
-//     document.getElementById("question").innerHTML = "";
-//     document.getElementById("options").innerHTML = "";
-// }
 
 const chatInput =  document.querySelector(".chat-input textarea")
 const sendChatBtn = document.querySelector(".chat-input span")
 const chatBox = document.querySelector(".chatbox")
 const chatToggler = document.querySelector(".chatbot-toggler")
 let userMessage
+let new_userMessage
 
 async function getApiKey() {
     const response = await fetch("/get_api_key");
@@ -184,10 +146,12 @@ function hideCheckBtn(){
 
 
 
+
+
 getApiKey().then(apiKey => {
     const API_KEY  = apiKey
     // Sử dụng apiKey ở đây
-    console.log(API_KEY)
+
     const generateRespone = (incomingChatLi) => {
         const API_URL = "https://api.openai.com/v1/chat/completions"
         messageElement = incomingChatLi.querySelector("p")
@@ -207,7 +171,7 @@ getApiKey().then(apiKey => {
                     },
                     {
                         "role": "user",
-                        "content": userMessage
+                        "content": new_userMessage
                     }
                 ]
             })
@@ -258,13 +222,15 @@ getApiKey().then(apiKey => {
         return chatLi
     }
 
-
-    
-    
-     
     const handleChat = () => {
         userMessage = chatInput.value.trim()
         if(!userMessage) return 
+        
+        if(prediction){
+            new_userMessage = `Chủ đề là ${prediction}: ` 
+                            + userMessage
+        }
+        console.log(new_userMessage)
         chatInput.value = ""
         
         chatBox.append(createChatLi(userMessage, 'outgoing'))
@@ -300,29 +266,49 @@ getApiKey().then(apiKey => {
         });
         
         // Nhận kết quả từ API
+
         const result = await response.json();
+        prediction = result.prediction
         percent_scores = result.percent_scores;
         num_class = result.num_class; 
+        console.log(percent_scores)
+
+        if(result.score<50){
+            chatBox.append(createChatLi("Hình ảnh mà bạn cung cấp quá mờ hoặc có vẻ không liên quan tới lễ hội", 'incoming'))
+            chatBox.scrollTo(0, chatBox.scrollHeight)   
+            return
+        }
         setTimeout(() =>{
             chatBox.append(createChatLi(`Hình ảnh có thể là: ${result.prediction}`, 'incoming'))
             chatBox.append(createChatLi(`Xác xuất dự đoán khoản ${result.score.toFixed(2)} %`, 'incoming'))
             chatBox.append(createChatLi("Dưới đây là một số hình ảnh có liên quan", 'incoming'))
             chatBox.append(createChatGallery(result.image_urls))
-            
             chatBox.scrollTo(0, chatBox.scrollHeight)   
             showCheckBtn()
         }, 600)
         
    
     });
-
-    document.getElementById("trueBtn").addEventListener('click', () =>{
+    // Xử lý sự kiện khi click nút đúng
+    document.getElementById("trueBtn").addEventListener('click',  ()  =>{
         hideCheckBtn()
         chatBox.append(createChatLi("Có vẻ dự đoán là đúng", 'outgoing'))
-        chatBox.append(createChatLi("Tuyệt! Hãy hỏi bất kì thông tin gì về lễ hội này", 'incoming'))
+        chatBox.append(createChatLi("Một số câu hỏi có thể tham khảo:", 'incoming'))
+        fetchQuestions(num_class+1)
         chatBox.scrollTo(0, chatBox.scrollHeight)
+
+        setTimeout(() =>{
+            const incomingChatLi = createChatLi("Một số link trang web có liên quan ...", 'incoming')
+            chatBox.append(incomingChatLi)
+            new_userMessage = `Hãy gợi ý một môt đường link các trang web có chưa thông tin về ${prediction}`
+            chatBox.scrollTo(0, chatBox.scrollHeight)
+            generateRespone(incomingChatLi)
+        },200)
+        
+
+        
     }) 
-    
+    // Xử lý sự kiện khi click nút sai
     document.getElementById("falseBtn").addEventListener('click', async () =>{
 
         hideCheckBtn()
@@ -350,7 +336,25 @@ getApiKey().then(apiKey => {
         }, 600)
     })  
      
-
+    function fetchQuestions(id_ques) {
+    
+        if (id_ques) {
+            fetch(`/get-questions/${id_ques}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length === 0) {
+                        return
+                    } else {
+                        data.forEach(item => {
+                            chatBox.append(createChatLi(item, 'incoming'))
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching questions:', error);
+                });
+        }
+    }
 
 });
 

@@ -233,7 +233,7 @@ plt.title('Training and Validation Loss')
 plt.show()
 
 
-model.save('festival_image_classification_v8.keras')
+model.save('festival_image_classification_v9.keras')
 #Predict on new data
 
 # x=0
