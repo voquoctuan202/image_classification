@@ -233,30 +233,8 @@ plt.title('Training and Validation Loss')
 plt.show()
 
 
-model.save('festival_image_classification_v9.keras')
-#Predict on new data
+model.save('festival_image_classification_v10.keras')
 
-# x=0
-
-# while (x!=1):
-#     filepath = filedialog.askopenfilename(
-#         filetypes=[("Image Files", "*.png;*.jpg;*.jpeg;*.bmp;*.gif;*.jfif")]
-#     )
-        
-
-#     img = tf.keras.utils.load_img(
-#     filepath, target_size=(img_height, img_width)
-#     )
-#     img_array = tf.keras.utils.img_to_array(img)
-#     img_array = tf.expand_dims(img_array, 0) # Create a batch
-
-#     predictions = model.predict(img_array)
-#     score = tf.nn.softmax(predictions[0])
-#     print(score)
-#     print(
-#     "This image most likely belongs to {} with a {:.2f} percent confidence."
-#     .format(class_names[np.argmax(score)], 100 * np.max(score))
-#     )
     
 
 

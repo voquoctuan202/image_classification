@@ -24,11 +24,11 @@ model_knn = joblib.load('knn_model.pkl')
 model_dtree =  joblib.load('dtree_model.pkl')
 model_rf = joblib.load('rf_model.pkl')
 
-class_names = ['Bà Chúa Xứ','Chọi Trâu','Đờn ca Tài Tử Nam Bộ','Đua Ghe Ngo',
+class_names = ['Bà Chúa Xứ','Văn hóa chợ nổi Cái Răng','Chọi Trâu','Đờn ca Tài Tử Nam Bộ','Đua Ghe Ngo',
                'Giỗ Tổ Hùng Vương','Hội vật làng Sình Huế',
                'Lễ hội bánh dân gian Nam Bộ','Lễ hội chùa Hương',
                'Lễ hội đâm trâu Tây Nguyên ','Lễ hội Đua Bò','Lễ hội Nghinh Ông'
-               ,'Lễ hội Thánh Gióng','Nghề Đan Tre', 'Nghề Dệt Chiếu', 'Tết Trung Thu ở Hội An']
+               ,'Lễ hội Thánh Gióng','Lễ hội Tháp Bà Ponagar','Nghề Đan Tre', 'Nghề Dệt Chiếu', 'Tết Trung Thu ở Hội An']
 x=0
 
 

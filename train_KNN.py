@@ -12,7 +12,11 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-class_names = ['Bà Chúa Xứ','Chọi Trâu','Đua Ghe Ngo','Giỗ Tổ Hùng Vương','Lễ hội chùa Hương','Lễ hội Đua Bò','Lễ hội Nghinh Ông','Lễ hội Thánh Gióng']
+class_names = ['Bà Chúa Xứ','Văn hóa chợ nổi Cái Răng','Chọi Trâu','Đờn ca Tài Tử Nam Bộ','Đua Ghe Ngo',
+               'Giỗ Tổ Hùng Vương','Hội vật làng Sình Huế',
+               'Lễ hội bánh dân gian Nam Bộ','Lễ hội chùa Hương',
+               'Lễ hội đâm trâu Tây Nguyên ','Lễ hội Đua Bò','Lễ hội Nghinh Ông'
+               ,'Lễ hội Thánh Gióng','Lễ hội Tháp Bà Ponagar','Nghề Đan Tre', 'Nghề Dệt Chiếu', 'Tết Trung Thu ở Hội An']
 # Bước 1: Đọc ảnh từ folder và gán nhãn
 def load_images_from_folder(folder_path, img_size=(256, 256)):
     X = []

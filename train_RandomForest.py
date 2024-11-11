@@ -10,9 +10,14 @@ import cv2
 import joblib
 import matplotlib.pyplot as plt
 
-class_names = ['Bà Chúa Xứ','Chọi Trâu','Đua Ghe Ngo','Giỗ Tổ Hùng Vương','Lễ hội chùa Hương','Lễ hội Đua Bò','Lễ hội Nghinh Ông','Lễ hội Thánh Gióng']
+class_names = ['Bà Chúa Xứ','Văn hóa chợ nổi Cái Răng','Chọi Trâu','Đờn ca Tài Tử Nam Bộ','Đua Ghe Ngo',
+               'Giỗ Tổ Hùng Vương','Hội vật làng Sình Huế',
+               'Lễ hội bánh dân gian Nam Bộ','Lễ hội chùa Hương',
+               'Lễ hội đâm trâu Tây Nguyên ','Lễ hội Đua Bò','Lễ hội Nghinh Ông'
+               ,'Lễ hội Thánh Gióng','Lễ hội Tháp Bà Ponagar','Nghề Đan Tre', 'Nghề Dệt Chiếu', 'Tết Trung Thu ở Hội An']
+
 # Bước 1: Đọc ảnh từ folder và gán nhãn
-def load_images_from_folder(folder_path, img_size=(256, 256)):
+def load_images_from_folder(folder_path, img_size=(200, 200)):
     X = []
     y = []
     classes = os.listdir(folder_path)  # Danh sách các thư mục con (nhãn)
@@ -34,7 +39,7 @@ def load_images_from_folder(folder_path, img_size=(256, 256)):
 # Bước 2: Hiển thị một số ảnh mẫu
 def show_sample_images(X, y, samples=5):
     for i in range(samples):
-        img = X[i].reshape(256, 256, 3)
+        img = X[i].reshape(200, 200, 3)
         plt.imshow(img.astype(np.uint8))
         plt.title(f"Label: {y[i]}")
         plt.show()
@@ -111,7 +116,7 @@ if __name__ == "__main__":
     folder_path = "F:\\Subjects\\festival_photos"
     
     # Tải dữ liệu từ folder
-    X, y = load_images_from_folder(folder_path, img_size=(256, 256))
+    X, y = load_images_from_folder(folder_path, img_size=(200, 200))
     
     # Hiển thị một số ảnh mẫu
     show_sample_images(X, y, samples=5)

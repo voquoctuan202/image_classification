@@ -22,53 +22,59 @@ question = {
     "1": ["Lễ vía Bà Chúa Xứ là gì?","Thời gian diễn ra lễ hội?",
           "Địa điểm tổ chức của lễ hội?","Nguồn gốc của Bà Chúa Xứ?",
           "Các lưu ý khi đi tham quan lễ vía?",],
-    "2": ["Lễ hội Chọi Trâu là gì?","Thời gian diễn ra Chọi Trâu?"
+    "2": ["Chợ nổi là gì?","Thời gian họp chợ?",
+          "Địa điểm của chợ?","Một số lưu ý khi tham quan chợ nổi Cái Răng?",
+          "Các lưu ý khi đi tham quan lễ vía?",],
+    "3": ["Lễ hội Chọi Trâu là gì?","Thời gian diễn ra Chọi Trâu?"
           "Địa điểm tổ chức?","Các phần thi đấu lễ hội?"
           "Trâu chọi là loại trâu gì?","Các lưu ý khi đi xem chọi trâu?"],
-    "3": ["Đờn Ca Tài Tử là gì?","Nguồn gốc của Đòn Ca Tài tử?",
+    "4": ["Đờn Ca Tài Tử là gì?","Nguồn gốc của Đòn Ca Tài tử?",
           "Phạm vi hoạt động của Đờn Ca Tài Tử?","Các nhạc cụ được sử dụng là gì?",
           "Một số ca khúc thuộc thể loại đờn ca tài tử","Một số địa điểm tổ chức đờn ca tài tử?"],
-    "4": ["Đua Ghe Ngo là gì?","Thời gian và địa điểm tổ chức?",
+    "5": ["Đua Ghe Ngo là gì?","Thời gian và địa điểm tổ chức?",
           "Ghe ngo là gì?", "Ý nghĩa của lễ hội?"],
-    "5": ["Giỗ Tổ Hùng Vương là gì?","Thời gian diễn ra?",
+    "6": ["Giỗ Tổ Hùng Vương là gì?","Thời gian diễn ra?",
           "Địa điểm tổ chức?","Lịch sử của ngày Giỗ Tổ Hùng Vương?",
           "Các hoạt động có trong lễ giỗ tổ?", "Các địa điểm có đền Hùng?"],
-    "6": ["Hội vật làng Sình là gì?","Thời gian và địa điểm tổ chức?",
+    "7": ["Hội vật làng Sình là gì?","Thời gian và địa điểm tổ chức?",
           "Ý nghĩa của lễ hội?", "Các hoạt động có trong hội vật?"],
-    "7": ["Lễ hội bánh dân gian là gì?","Thời gian và địa điểm tổ chức?",
+    "8": ["Lễ hội bánh dân gian là gì?","Thời gian và địa điểm tổ chức?",
           "Ý nghĩa của lễ hội bánh dân gian?", "Mục đích của lễ hội bánh dân gian?",
           "Các hoạt động có trong lễ hội?"],
-    "8": ["Lễ hội chùa Hương là gì?","Thời gian và địa điểm diễn ra lễ hội?",
+    "9": ["Lễ hội chùa Hương là gì?","Thời gian và địa điểm diễn ra lễ hội?",
           "Hoạt động khai hội tại chùa Hương?","Các lưu ý khi tham gia?"],
-    "9": ["Lễ hội đâm trâu Tây Nguyên là gì?","Thời gian diễn ra?",
+    "10": ["Lễ hội đâm trâu Tây Nguyên là gì?","Thời gian diễn ra?",
           "Địa điểm nào được tổ chức?","Nghi thức của lễ hội ra sao?"
           "Ý nghĩa khi tổ chức"],
-    "10": ["Lễ hội Đua Bò là gì?","Thời gian và địa điểm diễn ra?",
+    "11": ["Lễ hội Đua Bò là gì?","Thời gian và địa điểm diễn ra?",
            "Tổ chức lễ hội có gì?","Thể lệ của cuộc thi?",
            "Ý nghĩa của lễ hội đua bò?"],
-    "11": ["Lễ hội Nghinh Ông là gì?","Thời gian diễn ra?",
+    "12": ["Lễ hội Nghinh Ông là gì?","Thời gian diễn ra?",
            "Các địa điểm tổ chức?","Các hoạt động trong phần lễ?",
            "Các hoạt động trong phần hội?", "Ý nghĩa lễ hội?"],
-    "12": ["Lễ hội Thánh Gióng là gì?","Thời gian tổ chức?",
+    "13": ["Lễ hội Thánh Gióng là gì?","Thời gian tổ chức?",
            "Các địa điểm diễn ra lễ hội?","Thánh Gióng là ai?",
            "Ý nghĩa lịch sử của lễ hội?"],
-    "13": ["Nghề Đan Tre là gì","Các vùng nổi tiếng với nghề đan tre?",
+    "14": ["Lễ hội tháp bà Ponager là gì?",
+           "Địa điểm của tháp bà Ponagar ?","Bà Ponagar là ai?",
+           "Lịch sử của tháp bà Ponagar?"],
+    "15": ["Nghề Đan Tre là gì","Các vùng nổi tiếng với nghề đan tre?",
            "Các sản phẩm của nghề đan tre","Ứng dụng của các sản phẩm tre đan"],
-    "14": ["Nghề Dệt Chiếu là gì?","Các vùng nổi tiếng với nghề dệt chiếu?"],
-    "15": ["Tết Trung Thu ở Hội An là gì?","Thời gian diễn ra lễ trung thu",
+    "16": ["Nghề Dệt Chiếu là gì?","Các vùng nổi tiếng với nghề dệt chiếu?"],
+    "17": ["Tết Trung Thu ở Hội An là gì?","Thời gian diễn ra lễ trung thu",
            "Những điều đặc biệt của tết trung thu ở Hội An"],
 }
 
 # Tải mô hình đã huấn luyện 
-model_cnn = load_model('festival_image_classification_v9.keras') # Mô hình CNN
+model_cnn = load_model('festival_image_classification_v10.keras') # Mô hình CNN
 
     
 
-class_names = ['Bà Chúa Xứ','Chọi Trâu','Đờn ca Tài Tử Nam Bộ','Đua Ghe Ngo',
+class_names = ['Bà Chúa Xứ','Văn hóa chợ nổi Cái Răng','Chọi Trâu','Đờn ca Tài Tử Nam Bộ','Đua Ghe Ngo',
                'Giỗ Tổ Hùng Vương','Hội vật làng Sình Huế',
                'Lễ hội bánh dân gian Nam Bộ','Lễ hội chùa Hương',
                'Lễ hội đâm trâu Tây Nguyên ','Lễ hội Đua Bò','Lễ hội Nghinh Ông'
-               ,'Lễ hội Thánh Gióng','Nghề Đan Tre', 'Nghề Dệt Chiếu', 'Tết Trung Thu ở Hội An']
+               ,'Lễ hội Thánh Gióng','Lễ hội Tháp Bà Ponagar','Nghề Đan Tre', 'Nghề Dệt Chiếu', 'Tết Trung Thu ở Hội An']
 
 current_question_index = 0
 

@@ -8,7 +8,7 @@ def convert_images_to_png(directory):
     for root, dirs, files in os.walk(directory):
         for file_name in files:
             # Kiểm tra nếu tệp có phần mở rộng là ảnh, trừ .png (vì ta không cần chuyển đổi .png sang .png)
-            if file_name.lower().endswith(('.jpg', '.jpeg', '.bmp', '.gif', '.tiff')):
+            if file_name.lower().endswith(('.jpg', '.jpeg', '.bmp', '.gif', '.tiff','.webp')):
                 # Đường dẫn đầy đủ của tệp cũ
                 old_file_path = os.path.join(root, file_name)
                 # Đường dẫn mới với phần mở rộng .png
@@ -49,8 +49,8 @@ def rename_files_in_directory(directory):
 
 # Thay đổi đường dẫn thư mục gốc tại đây
 directory_path = "F:\\Subjects\\video_festival"
-#rename_files_in_directory(directory_path)
-convert_images_to_png(directory_path)
+rename_files_in_directory("F:\\Subjects\\festival_photos\\Le_Hoi_Thap_Ba_Ponagar")
+#convert_images_to_png(directory_path)
 
 
 
