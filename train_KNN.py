@@ -6,7 +6,6 @@ from sklearn.metrics import accuracy_score
 import cv2
 import joblib
 import matplotlib.pyplot as plt
-import numpy as np
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, classification_report
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -127,6 +126,6 @@ if __name__ == "__main__":
     
     y_pred = knn.predict(X_test)
     evaluate_model(y_test, y_pred, class_names)
-    save_model(knn,"knn_model.pkl")
+    save_model(knn,"model\\knn_model.pkl")
     
    

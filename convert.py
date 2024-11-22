@@ -47,13 +47,26 @@ def rename_files_in_directory(directory):
                     os.rename(old_file_path, new_file_path)
                     print(f"Đã đổi tên: {old_file_path} -> {new_file_path}")
 
+def convert_images_to_srgb(root_dir):
+    # Duyệt qua tất cả các tệp và thư mục con
+    for subdir, _, files in os.walk(root_dir):
+        for file in files:
+            file_path = os.path.join(subdir, file)
+            try:
+                # Mở ảnh
+                with Image.open(file_path) as img:
+                    # Kiểm tra nếu ảnh không ở kênh màu sRGB
+                    if 'icc_profile' in img.info:
+                     img.save(file_path, icc_profile=None)
+            except Exception as e:
+                print(f"Could not process {file_path}: {e}")
+                
 # Thay đổi đường dẫn thư mục gốc tại đây
-directory_path = "F:\\Subjects\\video_festival"
-rename_files_in_directory("F:\\Subjects\\festival_photos\\Le_Hoi_Thap_Ba_Ponagar")
-#convert_images_to_png(directory_path)
+directory_path = "F:\\Subjects\\video_festival\\HVLS"
+rename_files_in_directory(directory_path)
+convert_images_to_png(directory_path)
 
-
-
+convert_images_to_srgb(directory_path)
 
         
 

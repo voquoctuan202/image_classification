@@ -66,7 +66,7 @@ question = {
 }
 
 # Tải mô hình đã huấn luyện 
-model_cnn = load_model('festival_image_classification_v10.keras') # Mô hình CNN
+model_cnn = load_model('model\\festival_image_classification_v11_e20.keras') # Mô hình CNN
 
     
 

@@ -271,13 +271,8 @@ getApiKey().then(apiKey => {
         prediction = result.prediction
         percent_scores = result.percent_scores;
         num_class = result.num_class; 
-        console.log(percent_scores)
+        //console.log(percent_scores)
 
-        if(result.score<50){
-            chatBox.append(createChatLi("Hình ảnh mà bạn cung cấp quá mờ hoặc có vẻ không liên quan tới lễ hội", 'incoming'))
-            chatBox.scrollTo(0, chatBox.scrollHeight)   
-            return
-        }
         setTimeout(() =>{
             chatBox.append(createChatLi(`Hình ảnh có thể là: ${result.prediction}`, 'incoming'))
             chatBox.append(createChatLi(`Xác xuất dự đoán khoản ${result.score.toFixed(2)} %`, 'incoming'))

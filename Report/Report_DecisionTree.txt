@@ -1,32 +1,32 @@
 Evaluating Decision Tree...
-Accuracy: 38.22%
-Precision (weighted): 0.38
-Recall (weighted): 0.38
-F1 Score (weighted): 0.38
+Accuracy: 33.95%
+Precision (weighted): 0.34
+Recall (weighted): 0.34
+F1 Score (weighted): 0.34
 
 Confusion Matrix:
 
 Classification Report:
                              precision    recall  f1-score   support
 
-                 Bà Chúa Xứ       0.28      0.27      0.27       182
-   Văn hóa chợ nổi Cái Răng       0.37      0.35      0.36       154
-                  Chọi Trâu       0.51      0.47      0.49       154
-       Đờn ca Tài Tử Nam Bộ       0.41      0.39      0.40       144
-                Đua Ghe Ngo       0.43      0.45      0.44       148
-          Giỗ Tổ Hùng Vương       0.39      0.40      0.40       159
-      Hội vật làng Sình Huế       0.25      0.27      0.26        92
-Lễ hội bánh dân gian Nam Bộ       0.24      0.20      0.22       143
-          Lễ hội chùa Hương       0.48      0.57      0.52       139
-Lễ hội đâm trâu Tây Nguyên        0.24      0.27      0.25       104
-              Lễ hội Đua Bò       0.50      0.49      0.49       206
-          Lễ hội Nghinh Ông       0.45      0.37      0.41       194
-         Lễ hội Thánh Gióng       0.34      0.40      0.37       156
-     Lễ hội Tháp Bà Ponagar       0.29      0.27      0.28       146
-               Nghề Đan Tre       0.41      0.41      0.41       152
-             Nghề Dệt Chiếu       0.26      0.30      0.28       136
-     Tết Trung Thu ở Hội An       0.52      0.53      0.53       150
+                 Bà Chúa Xứ       0.32      0.28      0.30       184
+   Văn hóa chợ nổi Cái Răng       0.28      0.27      0.28       150
+                  Chọi Trâu       0.47      0.49      0.48       151
+       Đờn ca Tài Tử Nam Bộ       0.33      0.31      0.32       140
+                Đua Ghe Ngo       0.39      0.34      0.37       152
+          Giỗ Tổ Hùng Vương       0.28      0.32      0.30       151
+      Hội vật làng Sình Huế       0.23      0.24      0.24       121
+Lễ hội bánh dân gian Nam Bộ       0.21      0.20      0.21       164
+          Lễ hội chùa Hương       0.36      0.40      0.38       141
+Lễ hội đâm trâu Tây Nguyên        0.25      0.27      0.26       105
+              Lễ hội Đua Bò       0.47      0.47      0.47       198
+          Lễ hội Nghinh Ông       0.40      0.32      0.36       188
+         Lễ hội Thánh Gióng       0.31      0.36      0.33       152
+     Lễ hội Tháp Bà Ponagar       0.38      0.36      0.37       160
+               Nghề Đan Tre       0.25      0.29      0.27       127
+             Nghề Dệt Chiếu       0.28      0.29      0.28       159
+     Tết Trung Thu ở Hội An       0.49      0.49      0.49       146
 
-                   accuracy                           0.38      2559
-                  macro avg       0.37      0.38      0.37      2559
-               weighted avg       0.38      0.38      0.38      2559
+                   accuracy                           0.34      2589
+                  macro avg       0.34      0.34      0.34      2589
+               weighted avg       0.34      0.34      0.34      2589

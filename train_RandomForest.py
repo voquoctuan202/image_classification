@@ -140,8 +140,8 @@ if __name__ == "__main__":
     evaluate_model(y_test, y_pred, class_names)
     
     # Lưu mô hình
-    model_filename1 = "dtree_model.pkl"
-    model_filename2 = "rf_model.pkl"
+    model_filename1 = "model\\dtree_model.pkl"
+    model_filename2 = "model\\rf_model.pkl"
     
     save_model(dtree, model_filename1)
     save_model(rf, model_filename2)
