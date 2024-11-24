@@ -77,7 +77,7 @@ current_question_index = 0
 
 # Khởi tạo ứng dụng FastAPI
 app = FastAPI()
-app.mount("/static", StaticFiles(directory="F:\\Subjects\\LuanVan\\project\\static"), name="static")
+app.mount("/static", StaticFiles(directory="..\\static"), name="static")
 # Định nghĩa dữ liệu đầu vào bằng Pydantic
 class PredictionRequest(BaseModel):
     features: list
@@ -116,7 +116,7 @@ async def predict(file: UploadFile = File(...)):
     print(num_class)
     
     # Tạo đường dẫn đến thư mục tương ứng với class dự đoán
-    images_dir = os.path.join("F:\\Subjects\\LuanVan\\project\\static\\imgs", num_class)
+    images_dir = os.path.join("..\\static\\imgs", num_class)
     
      # Kiểm tra xem thư mục có tồn tại không
     if not os.path.isdir(images_dir):
