@@ -10,7 +10,6 @@ from tensorflow.keras.models import load_model
 from pydantic import BaseModel
 from fastapi import FastAPI
 from fastapi.responses import  JSONResponse
-import joblib
 from fastapi.staticfiles import StaticFiles
 
 from dotenv import load_dotenv
