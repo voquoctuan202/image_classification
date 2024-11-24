@@ -4,20 +4,16 @@ import unicodedata
 from PIL import Image
 
 def convert_images_to_png(directory):
-    # Duyệt qua tất cả các thư mục và tệp trong thư mục gốc
     for root, dirs, files in os.walk(directory):
         for file_name in files:
-            # Kiểm tra nếu tệp có phần mở rộng là ảnh, trừ .png (vì ta không cần chuyển đổi .png sang .png)
             if file_name.lower().endswith(('.jpg', '.jpeg', '.bmp', '.gif', '.tiff','.webp')):
-                # Đường dẫn đầy đủ của tệp cũ
+                
                 old_file_path = os.path.join(root, file_name)
-                # Đường dẫn mới với phần mở rộng .png
                 new_file_name = os.path.splitext(file_name)[0] + '.png'
                 new_file_path = os.path.join(root, new_file_name)
 
-                # Mở ảnh và lưu lại dưới định dạng PNG
                 with Image.open(old_file_path) as img:
-                    img = img.convert("RGBA")  # Chuyển ảnh sang RGBA để đảm bảo độ tương thích
+                    img = img.convert("RGBA")  
                     img.save(new_file_path, "PNG")
                 
                 os.remove(old_file_path)
@@ -25,47 +21,41 @@ def convert_images_to_png(directory):
                 print(f"Đã chuyển đổi: {old_file_path} -> {new_file_path}")
 
 def remove_vietnamese_accents(text):
-    # Chuyển đổi ký tự có dấu thành ký tự không dấu
     text = unicodedata.normalize('NFD', text)
     text = text.encode('ascii', 'ignore').decode('utf-8')
     return str(text)
 
 def rename_files_in_directory(directory):
-    # Duyệt qua tất cả các thư mục và tệp trong thư mục gốc
     for root, dirs, files in os.walk(directory):
         for file_name in files:
-            # Lọc các tệp ảnh (có đuôi .jpg, .png, .jpeg)
+            
             if re.search(r'\.(jpg|png|jpeg)$', file_name, re.IGNORECASE):
-                # Tạo tên tệp mới không có dấu tiếng Việt
+                
                 new_file_name = remove_vietnamese_accents(file_name)
-                # Tạo đường dẫn đầy đủ cho tên cũ và tên mới
                 old_file_path = os.path.join(root, file_name)
                 new_file_path = os.path.join(root, new_file_name)
                 
-                # Đổi tên tệp nếu tên mới khác tên cũ
                 if old_file_path != new_file_path:
                     os.rename(old_file_path, new_file_path)
                     print(f"Đã đổi tên: {old_file_path} -> {new_file_path}")
 
 def convert_images_to_srgb(root_dir):
-    # Duyệt qua tất cả các tệp và thư mục con
     for subdir, _, files in os.walk(root_dir):
         for file in files:
             file_path = os.path.join(subdir, file)
             try:
-                # Mở ảnh
                 with Image.open(file_path) as img:
-                    # Kiểm tra nếu ảnh không ở kênh màu sRGB
                     if 'icc_profile' in img.info:
                      img.save(file_path, icc_profile=None)
             except Exception as e:
                 print(f"Could not process {file_path}: {e}")
                 
-# Thay đổi đường dẫn thư mục gốc tại đây
 directory_path = "F:\\Subjects\\video_festival\\HVLS"
+#Đổi tên file nếu có tiếng Việt
 rename_files_in_directory(directory_path)
+#Convert ảnh về PNG
 convert_images_to_png(directory_path)
-
+#Fix cảnh báo kênh màu iccp
 convert_images_to_srgb(directory_path)
 
         

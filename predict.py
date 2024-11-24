@@ -19,7 +19,7 @@ from tensorflow.keras.models import load_model
 img_height = 256
 img_width = 256
 
-model_cnn = load_model('model\\festival_image_classification_v6.keras')
+model_cnn = load_model('model\\festival_image_classification_v11_e20.keras')
 model_knn = joblib.load('model\\knn_model.pkl')
 model_dtree =  joblib.load('model\\dtree_model.pkl')
 model_rf = joblib.load('model\\rf_model.pkl')

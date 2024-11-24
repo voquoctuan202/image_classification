@@ -22,23 +22,23 @@ Epoch 10/10
 Classification Report:
                          precision    recall  f1-score   support
 
-            Ba_Chua_Xu       0.74      0.76      0.75       169
-      Cho_noi_Cai_Rang       0.61      0.88      0.72       143
-             Choi_Trau       0.93      0.87      0.90       158
-         Don_Ca_Tai_Tu       0.70      0.67      0.69       129
-           Dua_Ghe_Ngo       0.89      0.84      0.86       148
-     Gio_To_Hung_Vuong       0.83      0.82      0.82       174
- Hoi_Vat_Lang_Sinh_Hue       0.72      0.88      0.79       120
-  Le_Hoi_Banh_Dan_Gian       0.80      0.72      0.76       136
-     Le_Hoi_Chua_Huong       0.80      0.75      0.78       148
-       Le_Hoi_Dam_Trau       0.70      0.76      0.73       125
-         Le_Hoi_Dua_Bo       0.97      0.83      0.90       199
-     Le_Hoi_Nghinh_Ong       0.71      0.81      0.76       166
-    Le_Hoi_Thanh_Giong       0.75      0.59      0.66       155
-Le_Hoi_Thap_Ba_Ponagar       0.88      0.61      0.72       167
-          Nghe_Dan_Tre       0.57      0.85      0.69       140
-        Nghe_Det_Chieu       0.66      0.53      0.59       159
-  Tet_Trung_Thu_Hoi_An       0.80      0.80      0.80       152
+            Ba_Chua_Xu       0.74      0.76      0.75       169 
+      Cho_noi_Cai_Rang       0.61      0.88      0.72       143 
+             Choi_Trau       0.93      0.87      0.90       158 
+         Don_Ca_Tai_Tu       0.70      0.67      0.69       129 
+           Dua_Ghe_Ngo       0.89      0.84      0.86       148 
+     Gio_To_Hung_Vuong       0.83      0.82      0.82       174 
+ Hoi_Vat_Lang_Sinh_Hue       0.72      0.88      0.79       120 
+  Le_Hoi_Banh_Dan_Gian       0.80      0.72      0.76       136 
+     Le_Hoi_Chua_Huong       0.80      0.75      0.78       148 
+       Le_Hoi_Dam_Trau       0.70      0.76      0.73       125 
+         Le_Hoi_Dua_Bo       0.97      0.83      0.90       199 
+     Le_Hoi_Nghinh_Ong       0.71      0.81      0.76       166 
+    Le_Hoi_Thanh_Giong       0.75      0.59      0.66       155 
+Le_Hoi_Thap_Ba_Ponagar       0.88      0.61      0.72       167 
+          Nghe_Dan_Tre       0.57      0.85      0.69       140 
+        Nghe_Det_Chieu       0.66      0.53      0.59       159 
+  Tet_Trung_Thu_Hoi_An       0.80      0.80      0.80       152 
 
               accuracy                           0.76      2588
              macro avg       0.77      0.76      0.76      2588

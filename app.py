@@ -66,9 +66,7 @@ question = {
 }
 
 # Tải mô hình đã huấn luyện 
-model_cnn = load_model('model\\festival_image_classification_v11_e20.keras') # Mô hình CNN
-
-    
+model_cnn = load_model('model\\festival_image_classification_v11_e30.keras') # Mô hình CNN
 
 class_names = ['Bà Chúa Xứ','Văn hóa chợ nổi Cái Răng','Chọi Trâu','Đờn ca Tài Tử Nam Bộ','Đua Ghe Ngo',
                'Giỗ Tổ Hùng Vương','Hội vật làng Sình Huế',
@@ -115,6 +113,8 @@ async def predict(file: UploadFile = File(...)):
        
     except Exception as e:
         return {"error": str(e)}
+    print(np.argmax(score))
+    print(num_class)
     
     # Tạo đường dẫn đến thư mục tương ứng với class dự đoán
     images_dir = os.path.join("F:\\Subjects\\LuanVan\\project\\static\\imgs", num_class)
