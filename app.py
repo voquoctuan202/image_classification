@@ -159,7 +159,7 @@ async def change_predict(percent_scores):
         return {"error": str(e)}
     
     # Tạo đường dẫn đến thư mục tương ứng với class dự đoán
-    images_dir = os.path.join("F:\\Subjects\\LuanVan\\project\\static\\imgs", num_class)
+    images_dir = os.path.join("..\\static\\imgs", num_class)
     
      # Kiểm tra xem thư mục có tồn tại không
     if not os.path.isdir(images_dir):
