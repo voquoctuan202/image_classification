@@ -4,3 +4,5 @@ numpy
 pydantic
 fastapi 
 uvicorn
+pillow
+python-dotenv
