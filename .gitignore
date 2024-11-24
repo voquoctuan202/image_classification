@@ -2,5 +2,4 @@ model
 dtree_model.pkl
 knn_model.pkl
 rf_model.pkl
-static/imgs
 .env
