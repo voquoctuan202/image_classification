@@ -16,15 +16,7 @@ from tensorflow.keras.models import Sequential
 import seaborn as sns
 import pathlib
 
-# Hàm hiển thị Confusion Matrix
-def plot_confusion_matrix(y_true, y_pred, class_names):
-    cm = confusion_matrix(y_true, y_pred)
-    plt.figure(figsize=(8, 6))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=class_names, yticklabels=class_names)
-    plt.xlabel('Predicted')
-    plt.ylabel('True')
-    plt.title('Confusion Matrix')
-    plt.show()
+
     
     
 # Đường dẫn tới thư mục huấn luyện
@@ -87,8 +79,8 @@ for image_batch, labels_batch in train_ds:
 AUTOTUNE = tf.data.AUTOTUNE
 
 
-train_ds = train_ds.cache().shuffle(1000).prefetch(buffer_size=AUTOTUNE)
-val_ds = val_ds.cache().prefetch(buffer_size=AUTOTUNE)
+# train_ds = train_ds.cache().shuffle(1000).prefetch(buffer_size=AUTOTUNE)
+# val_ds = val_ds.cache().prefetch(buffer_size=AUTOTUNE)
 
 
 normalization_layer = layers.Rescaling(1./255)

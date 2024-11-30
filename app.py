@@ -65,7 +65,7 @@ question = {
 }
 
 # Tải mô hình đã huấn luyện 
-model_cnn = load_model('festival_image_classification_v11_e20.keras') # Mô hình CNN
+model_cnn = load_model('model\\festival_image_classification_v11_e30.keras') # Mô hình CNN
 
 class_names = ['Bà Chúa Xứ','Văn hóa chợ nổi Cái Răng','Chọi Trâu','Đờn ca Tài Tử Nam Bộ','Đua Ghe Ngo',
                'Giỗ Tổ Hùng Vương','Hội vật làng Sình Huế',
@@ -77,7 +77,7 @@ current_question_index = 0
 
 # Khởi tạo ứng dụng FastAPI
 app = FastAPI()
-app.mount("/static", StaticFiles(directory=".\\static"), name="static")
+app.mount("/static", StaticFiles(directory="./static"), name="static")
 # Định nghĩa dữ liệu đầu vào bằng Pydantic
 class PredictionRequest(BaseModel):
     features: list

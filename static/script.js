@@ -225,7 +225,7 @@ getApiKey().then(apiKey => {
     const handleChat = () => {
         userMessage = chatInput.value.trim()
         if(!userMessage) return 
-        
+        new_userMessage = userMessage
         if(prediction){
             new_userMessage = `Chủ đề là ${prediction}: ` 
                             + userMessage
