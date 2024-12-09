@@ -7,7 +7,7 @@ import PIL.Image
 import matplotlib.pyplot as plt
 import numpy as np
 import PIL
-
+import matplotlib.pyplot as plt
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
@@ -17,7 +17,6 @@ import seaborn as sns
 import pathlib
 
 
-    
     
 # Đường dẫn tới thư mục huấn luyện
 data_dir = pathlib.Path("F:\\Subjects\\festival_photos").with_suffix('')
@@ -57,8 +56,8 @@ class_names = train_ds.class_names
 print(class_names)
 
 
-#Visualize the data
-import matplotlib.pyplot as plt
+#Hiển thị hình ảnh được thêm vào tập train
+
 
 plt.figure(figsize=(10, 10))
 for images, labels in train_ds.take(1):
@@ -81,7 +80,6 @@ AUTOTUNE = tf.data.AUTOTUNE
 
 # train_ds = train_ds.cache().shuffle(1000).prefetch(buffer_size=AUTOTUNE)
 # val_ds = val_ds.cache().prefetch(buffer_size=AUTOTUNE)
-
 
 normalization_layer = layers.Rescaling(1./255)
 
@@ -115,7 +113,7 @@ for images, _ in train_ds.take(1):
     plt.axis("off")
 plt.show()    
 
-#Build model
+#Xây dựng mô hình
 model = Sequential([
   data_augmentation,
   layers.Rescaling(1./255),
@@ -135,7 +133,7 @@ model.compile(optimizer='adam',
               loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
               metrics=['accuracy'])
 
-#Summary
+#Thông tin model
 model.summary()
 
 #==========================================================
@@ -278,7 +276,7 @@ plt.show()
 model.save('model\\festival_image_classification_v11_e40.keras')
 
 
-#Chart 40 epochs    
+#Hiển thị biểu đồ tổng    
 acc = acc_10 + acc_20 + acc_30+ acc_40
 val_acc = val_acc_10 + val_acc_20 + val_acc_30+ val_acc_40
 

@@ -1,64 +1,64 @@
-Epoch 1/10
-324/324 ━━━━━━━━━━━━━━━━━━━━ 107s 329ms/step - accuracy: 0.8618 - loss: 0.4340 - val_accuracy: 0.7419 - val_loss: 1.0627
-Epoch 2/10
-324/324 ━━━━━━━━━━━━━━━━━━━━ 106s 328ms/step - accuracy: 0.8657 - loss: 0.4330 - val_accuracy: 0.7682 - val_loss: 0.9424
-Epoch 3/10
-324/324 ━━━━━━━━━━━━━━━━━━━━ 106s 328ms/step - accuracy: 0.8692 - loss: 0.3946 - val_accuracy: 0.7639 - val_loss: 0.9793
-Epoch 4/10
-324/324 ━━━━━━━━━━━━━━━━━━━━ 110s 338ms/step - accuracy: 0.8725 - loss: 0.3906 - val_accuracy: 0.7821 - val_loss: 0.9834
-Epoch 5/10
-324/324 ━━━━━━━━━━━━━━━━━━━━ 106s 328ms/step - accuracy: 0.8763 - loss: 0.3930 - val_accuracy: 0.7782 - val_loss: 0.9534
-Epoch 6/10
-324/324 ━━━━━━━━━━━━━━━━━━━━ 106s 328ms/step - accuracy: 0.8768 - loss: 0.3912 - val_accuracy: 0.7751 - val_loss: 0.9273
+Epoch 31/10
+324/324 ━━━━━━━━━━━━━━━━━━━━ 117s 362ms/step - accuracy: 0.8871 - loss: 0.3573 - val_accuracy: 0.7654 - val_loss: 1.0031
+Epoch 32/10
+324/324 ━━━━━━━━━━━━━━━━━━━━ 112s 345ms/step - accuracy: 0.8873 - loss: 0.3557 - val_accuracy: 0.7785 - val_loss: 0.9767
+Epoch 33/10
+324/324 ━━━━━━━━━━━━━━━━━━━━ 112s 345ms/step - accuracy: 0.8788 - loss: 0.3669 - val_accuracy: 0.7766 - val_loss: 1.0349
+Epoch 34/10
+324/324 ━━━━━━━━━━━━━━━━━━━━ 112s 345ms/step - accuracy: 0.8951 - loss: 0.3175 - val_accuracy: 0.7797 - val_loss: 0.9884
+Epoch 35/10
+324/324 ━━━━━━━━━━━━━━━━━━━━ 112s 345ms/step - accuracy: 0.8927 - loss: 0.3350 - val_accuracy: 0.7646 - val_loss: 1.0754
+Epoch 36/10
+324/324 ━━━━━━━━━━━━━━━━━━━━ 112s 346ms/step - accuracy: 0.8987 - loss: 0.3277 - val_accuracy: 0.7700 - val_loss: 1.0451
 Epoch 7/10
-324/324 ━━━━━━━━━━━━━━━━━━━━ 107s 330ms/step - accuracy: 0.8880 - loss: 0.3628 - val_accuracy: 0.7821 - val_loss: 0.9440
-Epoch 8/10
-324/324 ━━━━━━━━━━━━━━━━━━━━ 107s 330ms/step - accuracy: 0.8833 - loss: 0.3753 - val_accuracy: 0.7825 - val_loss: 0.9618
-Epoch 9/10
-324/324 ━━━━━━━━━━━━━━━━━━━━ 107s 330ms/step - accuracy: 0.8837 - loss: 0.3614 - val_accuracy: 0.7720 - val_loss: 0.9801
-Epoch 10/10
-324/324 ━━━━━━━━━━━━━━━━━━━━ 107s 331ms/step - accuracy: 0.8905 - loss: 0.3428 - val_accuracy: 0.7616 - val_loss: 1.0301
+324/324 ━━━━━━━━━━━━━━━━━━━━ 112s 346ms/step - accuracy: 0.8973 - loss: 0.3260 - val_accuracy: 0.7847 - val_loss: 1.0368
+Epoch 38/10
+324/324 ━━━━━━━━━━━━━━━━━━━━ 112s 344ms/step - accuracy: 0.9089 - loss: 0.2978 - val_accuracy: 0.7770 - val_loss: 1.0696
+Epoch 39/10
+324/324 ━━━━━━━━━━━━━━━━━━━━ 112s 346ms/step - accuracy: 0.9025 - loss: 0.3014 - val_accuracy: 0.7789 - val_loss: 1.0284
+Epoch 40/10
+324/324 ━━━━━━━━━━━━━━━━━━━━ 112s 345ms/step - accuracy: 0.9042 - loss: 0.2940 - val_accuracy: 0.7754 - val_loss: 1.1513
 
 Classification Report:
                          precision    recall  f1-score   support
 
-            Ba_Chua_Xu       0.74      0.76      0.75       169 
-      Cho_noi_Cai_Rang       0.61      0.88      0.72       143 
-             Choi_Trau       0.93      0.87      0.90       158 
-         Don_Ca_Tai_Tu       0.70      0.67      0.69       129 
-           Dua_Ghe_Ngo       0.89      0.84      0.86       148 
-     Gio_To_Hung_Vuong       0.83      0.82      0.82       174 
- Hoi_Vat_Lang_Sinh_Hue       0.72      0.88      0.79       120 
-  Le_Hoi_Banh_Dan_Gian       0.80      0.72      0.76       136 
-     Le_Hoi_Chua_Huong       0.80      0.75      0.78       148 
-       Le_Hoi_Dam_Trau       0.70      0.76      0.73       125 
-         Le_Hoi_Dua_Bo       0.97      0.83      0.90       199 
-     Le_Hoi_Nghinh_Ong       0.71      0.81      0.76       166 
-    Le_Hoi_Thanh_Giong       0.75      0.59      0.66       155 
-Le_Hoi_Thap_Ba_Ponagar       0.88      0.61      0.72       167 
-          Nghe_Dan_Tre       0.57      0.85      0.69       140 
-        Nghe_Det_Chieu       0.66      0.53      0.59       159 
-  Tet_Trung_Thu_Hoi_An       0.80      0.80      0.80       152 
+            Ba_Chua_Xu       0.79      0.73      0.76       169
+      Cho_noi_Cai_Rang       0.74      0.77      0.76       143
+             Choi_Trau       0.94      0.87      0.90       158
+         Don_Ca_Tai_Tu       0.79      0.65      0.71       129
+           Dua_Ghe_Ngo       0.79      0.92      0.85       148
+     Gio_To_Hung_Vuong       0.78      0.80      0.79       174
+ Hoi_Vat_Lang_Sinh_Hue       0.88      0.81      0.84       120
+  Le_Hoi_Banh_Dan_Gian       0.79      0.59      0.68       136
+     Le_Hoi_Chua_Huong       0.81      0.84      0.82       148
+       Le_Hoi_Dam_Trau       0.71      0.89      0.79       125
+         Le_Hoi_Dua_Bo       0.96      0.78      0.86       199
+     Le_Hoi_Nghinh_Ong       0.76      0.83      0.79       166
+    Le_Hoi_Thanh_Giong       0.76      0.69      0.72       155
+Le_Hoi_Thap_Ba_Ponagar       0.86      0.71      0.78       167
+          Nghe_Dan_Tre       0.74      0.75      0.74       138
+        Nghe_Det_Chieu       0.50      0.79      0.61       160
+  Tet_Trung_Thu_Hoi_An       0.81      0.76      0.79       152
 
-              accuracy                           0.76      2588
-             macro avg       0.77      0.76      0.76      2588
-          weighted avg       0.78      0.76      0.76      2588
+              accuracy                           0.78      2587
+             macro avg       0.79      0.77      0.78      2587
+          weighted avg       0.79      0.78      0.78      2587
 
 Confusion Matrix:
- [[128   9   0   2   1   0   1   1   1   2   0   8   5   0   3   2   6]
- [  0 126   0   1   1   1   0   3   1   2   0   0   0   0   4   2   2]
- [  0   0 138   1   0   1   4   0   1   3   0   2   2   0   0   5   1]
- [  3   4   0  86   1   0   5   5   2   6   1   5   0   1   4   2   4]
- [  1  10   0   1 124   1   2   1   0   1   1   3   0   1   0   1   1]
- [  2   0   1   0   1 142   3   4   3   4   0   5   5   2   2   0   0]
- [  1   3   0   1   0   1 105   0   0   1   0   1   2   0   4   0   1]
- [  0  13   1   7   0   0   0  98   1   0   0   2   1   2   6   3   2]
- [  5   5   0   1   1   3   4   1 111   3   0   2   2   1   6   2   1]
- [  0   3   2   1   0   3   7   0   1  95   1   1   0   2   6   3   0]
- [  0   3   4   5   1   0   1   0   4   1 166   0   2   0   3   9   0]
- [  6   5   0   1   2   8   2   0   3   0   1 134   2   1   0   0   1]
- [  7   4   0   5   1   6   5   0   4   4   1  17  91   1   3   4   2]
- [  8   4   0   3   0   2   1   4   2   7   0   2   3 102  24   1   4]
- [  0   4   0   0   0   1   1   1   2   2   0   0   1   0 119   8   1]
- [  6  12   2   5   5   2   2   4   2   1   0   3   5   3  19  84   4]
- [  7   3   0   2   1   1   3   1   0   3   0   3   0   0   4   2 122]]
+ [[123   6   0   0   1   1   1   0   4   4   0   9   7   2   2   4   5]
+ [  2 110   0   0   6   0   1   5   3   1   0   3   0   1   3   6   2]
+ [  0   0 137   0   2   4   0   0   1   2   0   2   4   0   1   4   1]
+ [  6   2   0  84   2   3   2   3   2   6   3   2   1   2   3   7   1]
+ [  0   1   0   0 136   2   2   0   2   0   0   1   0   0   0   2   2]
+ [  0   0   0   0   4 140   0   2   5   3   0   4   9   3   1   3   0]
+ [  2   1   2   0   2   1  97   0   0   8   0   0   2   0   1   4   0]
+ [  5   5   0   6   3   0   0  80   0   0   1   3   0   4   5  21   3]
+ [  1   3   0   1   2   3   0   0 124   6   1   3   0   0   1   3   0]
+ [  0   0   0   0   0   1   2   0   3 111   0   0   0   0   0   7   1]
+ [  1   3   5   1   0   2   0   1   0   5 156   2   1   0   3  19   0]
+ [  3   5   1   1   6   4   1   0   0   0   0 137   4   1   0   2   1]
+ [  1   0   1   1   2  12   2   0   5   3   1   8 107   2   3   4   3]
+ [  2   1   0   6   3   1   2   2   2   3   0   2   2 119   4  14   4]
+ [  1   4   0   2   0   1   0   2   0   1   1   1   1   1 103  18   2]
+ [  2   4   0   3   0   3   0   4   2   2   0   1   2   1   8 126   2]
+ [  7   3   0   2   3   2   0   2   1   2   0   3   1   2   1   7 116]]

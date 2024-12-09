@@ -12,17 +12,13 @@
 <body class="show-chatbot">
     <h1 style="text-align: center;">AI Image Classification</h1>
     
-    <!-- Form để người dùng chọn hình ảnh -->
+   
     <form id="upload-form" style="text-align: center;">
         <label for="input-image"><i class="fa-solid fa-upload"></i> Chọn hình ảnh</label>
         <input type="file" id="input-image" name="input-image" accept="image/*">
         <button type="submit" id="btnSubmit">Dự đoán</button>
     </form>
     
-    <!-- Hiển thị kết quả -->
-    
-   
-
     
     <div id="predict" style="display: none; text-align: center;">
         <h3>Hình ảnh đã chọn:</h3>
@@ -43,14 +39,14 @@
       
     </div>
 
-    <button class="chatbot-toggler">
+    <button class="chatbot-toggler" style="display: none;">
         <span class="material-symbols-outlined">mode_comment</span>
         <span class="material-symbols-outlined">close</span>
     </button>
     <div class="chatbot">
         <header>
             <h2>Chatbot</h2>
-            <span class="material-symbols-outlined">close</span>
+            <span class="material-symbols-outlined" style="display: none;">close</span>
         </header>
         <ul class="chatbox">
             <li class="chat incoming">

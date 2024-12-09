@@ -4,7 +4,6 @@ Precision (weighted): 0.34
 Recall (weighted): 0.34
 F1 Score (weighted): 0.34
 
-Confusion Matrix:
 
 Classification Report:
                              precision    recall  f1-score   support

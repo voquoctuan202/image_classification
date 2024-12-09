@@ -20,6 +20,7 @@ img_height = 256
 img_width = 256
 
 model_cnn = load_model('model\\festival_image_classification_v11_e20.keras')
+#Không thể sử dụng model KNN do lỗi: numpy.core._exceptions._ArrayMemoryError: Unable to allocate 15.2 GiB for an array with shape (2035286016,) and data type float64
 #model_knn = joblib.load('model\\knn_model.pkl')
 model_dtree =  joblib.load('model\\dtree_model.pkl')
 model_rf = joblib.load('model\\rf_model.pkl')
@@ -55,11 +56,8 @@ while (x!="1"):
     #prediction_knn = model_knn.predict(img_array)
     prediction_dtree = model_dtree.predict(img_array)
     prediction_rf = model_rf.predict(img_array)
-    # print(
-    # "This image most likely belongs to {} with a {:.2f} percent confidence."
-    # .format(class_names[np.argmax(score)], 100 * np.max(score))
-    # )
     
+
     plt.figure()
     plt.subplot(2,2,1)
     plt.imshow(img)

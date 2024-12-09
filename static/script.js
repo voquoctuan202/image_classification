@@ -313,13 +313,20 @@ getApiKey().then(apiKey => {
         
         // Nhận kết quả từ API
         const result = await response.json();
+        prediction = result.prediction
         percent_scores = result.percent_scores;
         num_class = result.num_class 
         console.log(result.prediction)
         
-    
+        
         percent_scores = result.percent_scores;
         num_class = result.num_class; 
+        if(result.score == -1){
+            chatBox.append(createChatLi(`Xin lỗi vì không thể dự đoán hình ảnh này :((`, 'incoming'))
+            chatBox.append(createChatLi(`Vui lòng chọn hình ảnh khác!`, 'incoming'))
+            hideCheckBtn()
+            return
+        }
         setTimeout(() =>{
             chatBox.append(createChatLi(`Hình ảnh có thể là: ${result.prediction}`, 'incoming'))
             chatBox.append(createChatLi(`Xác xuất dự đoán khoản ${result.score.toFixed(2)} %`, 'incoming'))
